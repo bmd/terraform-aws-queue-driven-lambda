@@ -1,0 +1,7 @@
+*.tfstate
+*.tfstate.backup
+.terraform
+examples/.terraform/
+
+.vscode/
+.idea/
