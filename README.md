@@ -2,6 +2,8 @@
 
 This module abstracts the newly-supported pattern of triggering a Lambda function directly from an SQS queue, and handles provisining the Lambda, queue, a dead-letter queue to hold failed messages, and a log group for the lambda.
 
+You can read more about the architectural and design principles in [AWS's introduction to the pattern](https://aws.amazon.com/serverless/use-sqs-as-an-event-source-for-lambda-tutorial/).
+
 ## Quickstart
 
 ```terraform
