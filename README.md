@@ -27,7 +27,9 @@ module "q_lambda" {
 
 Terraform 0.12 only
 
-## Architecture
+## Resources
+
+
 
 
 ## Variables
@@ -36,5 +38,9 @@ Terraform 0.12 only
 
 `function_name` - 
 
+
+`dlq_message_retention_seconds` - 
+
+`log_retention_in_days` - (Optional) The number of days to retain the Lambda's CloudWatch execution logs for. The default value is 14. If `0` is entered, a CloudWatch log stream will not be created (not recommended).
 
 ## Outputs
