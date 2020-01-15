@@ -47,11 +47,6 @@ variable "environment" {
   default     = {}
 }
 
-variable "logfilter_destination_arn" {
-  description = "The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN."
-  default     = ""
-}
-
 variable "memory_size" {
   description = "Amount of memory in MB your Lambda Function can use at runtime. Defaults to 128."
   default     = 128
@@ -106,7 +101,7 @@ variable "dlq_message_retention_seconds" {
 
 # -- Logging --
 variable "log_retention_in_days" {
-  description = "Specifies the number of days you want to retain log events in the specified log group. Defaults to 14."
+  description = "(Optional) The number of days to retain the Lambda's CloudWatch execution logs for. The default value is 14. If `0` is entered, a CloudWatch log stream will not be created (not recommended)."
   type        = number
   default     = 14
 }

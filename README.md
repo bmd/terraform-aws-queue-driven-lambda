@@ -34,13 +34,46 @@ Terraform 0.12 only
 
 ## Variables
 
-`filename` - the path to a deployable Lambda package on the filesystem where you are running `terraform apply`. For more information on creating a deployable Lambda package, look at [AWS's Documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-python-how-to-create-deployment-package.html)
+### Required Inputs
 
-`function_name` - 
+`filename` - The path to the function's deployment package within the local filesystem. For more information on creating a deployable Lambda package, look at [AWS's Documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-python-how-to-create-deployment-package.html)
 
+`function_name` - A unique name for your Lambda Function.
+
+`handler` - The function entrypoint in your code.
+
+`role` - IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/lambda-permissions.html) for more details. 
+
+`project_prefix` - 
+
+`runtime` - See [runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+
+### Optional Variables
+
+`description` - 
+
+`environment` - 
+
+`memory_size` - 
+
+`publish` - 
+
+`reversed_concurrent_executions` - 
+
+`timeout` - 
 
 `dlq_message_retention_seconds` - 
 
 `log_retention_in_days` - (Optional) The number of days to retain the Lambda's CloudWatch execution logs for. The default value is 14. If `0` is entered, a CloudWatch log stream will not be created (not recommended).
 
 ## Outputs
+
+`task_queue_id` - The URL of the SQS queue.
+
+`task_queue_arn` - The ARN of the SQS queue.
+
+`deadletter_queue_id` - The URL of the deadletter queue in SQS (if configured).
+
+`deadletter_queue_arn` - the ARN of the deadletter queue in SQS (if configured).
+
+`log_stream_arn` - The ARN of the CloudWatch log stream for the Lambda execution logs (if configured).
