@@ -52,7 +52,7 @@ resource "aws_iam_policy" "lambda_iam_policy" {
 }
 
 module "queue_fed_lambda" {
-  source = "../"
+  source = "../../"
 
   project_prefix = "qfl-test"
 
