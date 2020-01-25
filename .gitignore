@@ -1,7 +1,8 @@
+# Ignore any TF state
 *.tfstate
 *.tfstate.backup
-.terraform
+.terraform/
 examples/.terraform/
 
+# IDE Files
 .vscode/
-.idea/

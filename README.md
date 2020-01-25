@@ -14,7 +14,7 @@ module "q_lambda" {
   project_prefix = "qfl-test"
 
   filename      = "example.zip"
-  function_name = "example_func_shun"
+  function_name = "my_lambda_fn"
   handler       = "index.handle"
 
   runtime         = "go1.x"
@@ -25,9 +25,9 @@ module "q_lambda" {
 
 ```
 
-## Terraform Versions
+## Supported Terraform Versions
 
-Terraform 0.12 only
+* Terraform 0.12
 
 ## Resources
 
@@ -79,3 +79,8 @@ Terraform 0.12 only
 `deadletter_queue_arn` - the ARN of the deadletter queue in SQS (if configured).
 
 `log_stream_arn` - The ARN of the CloudWatch log stream for the Lambda execution logs (if configured).
+
+
+### Note on IAM permissions.
+
+In order to create a Lambda function with an SQS queue as an event source, you will need to 
