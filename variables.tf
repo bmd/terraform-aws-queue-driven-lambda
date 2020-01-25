@@ -3,12 +3,12 @@
 # ---------------------------------------------------------------------------------------------------------------------
 
 variable "filename" {
-  description = "The path to the function's deployment package within the local filesystem. For more information on creating a deployable Lambda package, look at [AWS's Documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-python-how-to-create-deployment-package.html)"
+  description = "The path to the function's deployment package within the local filesystem. For more information on creating a deployable Lambda package, see AWS's documentation: https://docs.aws.amazon.com/lambda/latest/dg/lambda-python-how-to-create-deployment-package.html"
   type        = string
 }
 
 variable "function_name" {
-  description = "A unique name for your Lambda Function."
+  description = "A unique name for your Lambda Function. This will also be used as a prefix for naming the associated queue resources"
   type        = string
 }
 
@@ -18,17 +18,12 @@ variable "handler" {
 }
 
 variable "lambda_iam_role" {
-  description = "IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/lambda-permissions.html) for more details"
-  type        = string
-}
-
-variable "project_prefix" {
-  description = "A prefix to apply to resources created by this module"
+  description = "IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See https://docs.aws.amazon.com/lambda/latest/dg/lambda-permissions.html for more details"
   type        = string
 }
 
 variable "runtime" {
-  description = "See [runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values."
+  description = "See https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime for valid values."
   type        = string
 }
 
@@ -44,7 +39,7 @@ variable "description" {
 }
 
 variable "environment" {
-  description = "The Lambda environment's configuration settings. See [the official module's documentation](https://www.terraform.io/docs/providers/aws/r/lambda_function.html#environment) for valid values."
+  description = "The Lambda environment's configuration settings. See the official module's documentation: https://www.terraform.io/docs/providers/aws/r/lambda_function.html#environment for valid values."
   type        = map(map(string))
   default     = {}
 }
@@ -107,8 +102,8 @@ variable "max_receive_count" {
 
 variable "max_message_size" {
   description = "The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB)"
-  type    = number
-  default = 262144
+  type        = number
+  default     = 262144
 }
 
 # -- Logging --

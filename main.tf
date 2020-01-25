@@ -20,7 +20,7 @@ resource "aws_lambda_function" "func" {
 }
 
 resource "aws_sqs_queue" "task_queue" {
-  name                      = "${var.project_prefix}-tasks"
+  name                      = "${var.function_name}-tasks"
   message_retention_seconds = var.message_retention_seconds
 
   redrive_policy = jsonencode({
@@ -30,7 +30,7 @@ resource "aws_sqs_queue" "task_queue" {
 }
 
 resource "aws_sqs_queue" "deadletter_queue" {
-  name                      = "${var.project_prefix}-dlq"
+  name                      = "${var.function_name}-dlq"
   message_retention_seconds = var.dlq_message_retention_seconds
 }
 

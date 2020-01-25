@@ -1,6 +1,6 @@
 output "task_queue_id" {
   description = "The URL of the task queue"
-  value = aws_sqs_queue.task_queue.id
+  value       = aws_sqs_queue.task_queue.id
 }
 
 output "task_queue_arn" {
@@ -19,5 +19,6 @@ output "deadletter_queue_arn" {
 }
 
 output "log_stream_arn" {
-  value = concat(aws_cloudwatch_log_group.log_group.*.arn, [""])[0]
+  description = "The ARN if the Lambda's Cloudwatch Logs stream (if created)"
+  value       = concat(aws_cloudwatch_log_group.log_group.*.arn, [""])[0]
 }
