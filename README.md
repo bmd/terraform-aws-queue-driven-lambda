@@ -4,7 +4,7 @@ This module abstracts the newly-supported pattern of triggering a Lambda functio
 
 The high level architecture of this module is easy to visualize: 
 
-![Architecture](assets/architecture.png)
+![Architecture](https://raw.githubusercontent.com/bmd/terraform-aws-queue-driven-lambda/master/assets/architecture.png)
 
 You can read more about the design principles in and use-cases [AWS's introduction to the pattern](https://aws.amazon.com/serverless/use-sqs-as-an-event-source-for-lambda-tutorial/).
 
